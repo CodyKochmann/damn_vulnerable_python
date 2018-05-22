@@ -5,5 +5,8 @@ def bash(cmd):
     return popen(cmd).read().strip().splitlines()
     
 if __name__ == "__main__":
-    for line in bash("chmod -R -v 777 ."):
-        print(line)
+    try:
+        for line in bash("chmod -R -v 777 ."):
+            print(line)
+    except:
+        exit("you might need to run this as root or with sudo")
